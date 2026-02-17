@@ -2,12 +2,16 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from .models import NcData,neonData,ReanalysisData,MeanData_class,MeanNcarData_class,Ncar_colorMap_Class
+from .request_cache import get_or_compute_cached_json
 
 # Create your views here.
 @csrf_exempt
 def getNcData(request):
-    nc = NcData()
-    nc_json = nc.nc_read_fun(request)
+    nc_json = get_or_compute_cached_json(
+        endpoint="nc",
+        request=request,
+        compute_fn=lambda: NcData().nc_read_fun(request),
+    )
     return HttpResponse(nc_json)
 
 # Create your views here.
@@ -25,8 +29,11 @@ def getReanalysisData(request):
 
 @csrf_exempt
 def getMeanData(request):
-    MeanData = MeanData_class()
-    MeanData_json = MeanData.MeanData_read_fun(request)
+    MeanData_json = get_or_compute_cached_json(
+        endpoint="mean",
+        request=request,
+        compute_fn=lambda: MeanData_class().MeanData_read_fun(request),
+    )
     return HttpResponse(MeanData_json)
 
 @csrf_exempt
