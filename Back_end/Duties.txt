@@ -1,0 +1,15 @@
+System Integration/Senior Integration Analyst - AITS (Hybrid/Remote)
+
+Duties:
+1.Provide expertise for selecting and implementing services, understanding both business processes and implementation methods.
+2.Lead integration projects, monitor progress, and ensure milestones are met.
+3.Design complex integrations across multiple systems to deliver complete business solutions.
+4.Analyze business requirements, document integration components, and develop test suites.
+5.Ensure appropriate technical resources are allocated and support integration work.
+6.Identify and implement improvements to enhance operations and resolve errors.
+7.Support integrations in both production and non-production environments.
+8.Research solutions and industry practices, provide estimates, and resolve customer complaints.
+9.Collaborate with team members, receive coaching and mentoring as needed.
+10.Participate in information sharing and present proposed changes for architectural review.
+11.Communicate and enforce standards for network, computer, and data security.
+12.Provide off-hours/on-call support when required.

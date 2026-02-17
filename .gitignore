@@ -1,0 +1,81 @@
+# -----------------------------
+# OS / editor metadata
+# -----------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+Back_end/venvi/
+
+# -----------------------------
+# Node / Angular
+# -----------------------------
+node_modules/
+Front_end/Frontend_angular/node_modules/
+Front_end/Frontend_angular/dist/
+Front_end/Frontend_angular/.angular/
+Front_end/Frontend_angular/.angular/cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------
+# Local runtime / DB / logs
+# -----------------------------
+*.log
+Back_end/runserver.err.log
+Back_end/runserver.out.log
+*.sqlite3
+db.sqlite3
+Back_end/db.sqlite3
+
+# -----------------------------
+# Large project data/model dirs
+# -----------------------------
+Back_end/Best_Model/
+Back_end/Nc_data/
+Back_end/ERA5/
+Back_end/MEERA_2/
+Back_end/Neon_data/
+Back_end/swvRZ_data/
+Back_end/Combined_df
+Front_end/Frontend_angular/src/assets/Json/
+Front_end/backUP File/
+backUp_file/
+
+# -----------------------------
+# Large data/model/archive files
+# -----------------------------
+*.nc
+*.h5
+*.hdf5
+*.parquet
+*.feather
+*.csv
+*.tsv
+*.jsonl
+*.zip
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
