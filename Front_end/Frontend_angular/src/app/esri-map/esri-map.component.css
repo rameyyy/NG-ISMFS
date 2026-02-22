@@ -120,24 +120,58 @@ body{
   margin-bottom: 10px;
 }
 
-#CSUNImg {
-  height: 70px; 
-  width: 70px;
-  margin: 0px 10px;
-}
-
 .navbar_title{
-  width: 100%;
+  /*width: 100%;
   float: left;
   padding-left: 10%;
-  padding-right: 10%;
+  padding-right: 10%;*/
   text-align: center;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
+nav.navbar {
+  position: fixed; top:0; left:0; right:0; height:68px; z-index:1100;
+  background-color:#f8f9fa; box-shadow:0 2px 4px rgba(0,0,0,0.08);
+}
+
+.container-fluid{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  gap: 6px 10px;
+  padding: 6px 12px;
+  min-width: 0;
+}
+
+.header-logo, .container-fluid > img {
+  height: flex;
+  width: flex;
+  max-height: 70px;
+  max-width: 90px;
+  flex: 0 1 auto;
+  margin: 0 3px;
+  object-fit: contain;
+}
+
+@media (max-width: 1200px){.header-logo > img {max-height: 62px;}}
+@media (max-width: 992px){.header-logo > img {max-height: 52px;}}
+@media (max-width: 576px){.header-logo> img {max-height: 38px;}} 
+
+
+/*
 .logo_div{
   display: flex;
   justify-content: right;
   margin-top: 88px;
+}
+
+#CSUNImg {
+  height: 70px; 
+  width: 70px;
+  margin: 0px 10px;
 }
 
 #NCARImg{
@@ -173,3 +207,4 @@ body{
   width: 130px;
   margin: 0px 10px;
 }
+  */
