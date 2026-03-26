@@ -165,7 +165,24 @@ class NcData(models.Model):
             predicted_data,evaluation_metric_df = pM.nc_prediction_model_2(request,ERA5_df,H2OSOI_df,dates,nearest_index)
             predicted_data_Final_df = pd.concat([predicted_data,evaluation_metric_df],axis=1)
         print(predicted_data_Final_df)
-        Json_dump = predicted_data_Final_df.to_json()
+        import json as _json
+        import math as _math
+        import numpy as _np
+        def _clean(obj):
+            if isinstance(obj, dict):
+                return {k: _clean(v) for k, v in obj.items()}
+            if isinstance(obj, list):
+                return [_clean(v) for v in obj]
+            if isinstance(obj, float) and _math.isnan(obj):
+                return None
+            if isinstance(obj, _np.floating):
+                return None if _np.isnan(obj) else float(obj)
+            if isinstance(obj, _np.integer):
+                return int(obj)
+            if hasattr(obj, 'isoformat'):
+                return obj.isoformat()
+            return obj
+        Json_dump = _json.dumps(_clean(predicted_data_Final_df.to_dict()))
         return Json_dump
 
 class neonData(models.Model):

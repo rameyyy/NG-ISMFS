@@ -1,11 +1,3 @@
-# NG-ISMFS (Next Generation Interactive Soil Moisture Forecasting System)
-
-This repository contains:
-- Django backend API (`Back_end`)
-- Angular frontend (`Front_end/Frontend_angular`)
-
-## Folder Layout
-
 Expected project layout (important for backend runtime paths):
 - `Back_end/Nc_data/`  
   Contains NCAR/CESM NetCDF files, including:  
@@ -102,22 +94,6 @@ After all shards complete, merge:
 ```
 
 Do the same for `mean` endpoint if needed.
-
-## Verify Cache Is Being Used
-
-When cache is hit, backend prints logs similar to:
-
-```text
-[CACHE HIT] endpoint=nc key=nc|2020-01-06|45.8200|-121.9520 file=nc_endpoint_cache.parquet
-```
-
-For bar-graph endpoint:
-
-```text
-[CACHE HIT] endpoint=mean key=mean|2020-01-06|45.8200|-121.9520 file=mean_endpoint_cache.parquet
-```
-
-If you see TensorFlow inference steps immediately for the same request, that request was a cache miss.
 
 ## Notes
 
