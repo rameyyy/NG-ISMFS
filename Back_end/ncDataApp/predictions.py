@@ -245,7 +245,8 @@ class PredictionModel():
         Date = pd.date_range(start= monday_date,end= end_46th_date)
         print("end date",end_46th_date)
         Date_df = pd.DataFrame(Date)
-        pred = combined_df.iloc[week_number] 
+        week_number = min(week_number, len(combined_df) - 1)
+        pred = combined_df.iloc[week_number]
         ERA5_df = ERA5_df.iloc[week_number]
         H2OSOI_df = H2OSOI_df.iloc[week_number]
         model_1_pred = model_1_pred.iloc[week_number]
