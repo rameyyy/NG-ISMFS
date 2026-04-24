@@ -50,55 +50,12 @@ npm start
 Default frontend dev URL:
 - `http://localhost:4200/`
 
-## Optional: Build Forecast Cache (Parquet)
+## Cache
 
-From repo root:
-
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint nc
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint mean
-```
-
-Useful for a quick test run:
-
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint nc --start-date 2020-01-06 --end-date 2020-02-24
-```
-
-Parallel precompute (safe across multiple terminals):
-
-Terminal 1:
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint nc --shard-count 4 --shard-index 0
-```
-
-Terminal 2:
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint nc --shard-count 4 --shard-index 1
-```
-
-Terminal 3:
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint nc --shard-count 4 --shard-index 2
-```
-
-Terminal 4:
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py build_parquet_cache --endpoint nc --shard-count 4 --shard-index 3
-```
-
-After all shards complete, merge:
-
-```powershell
-.\Back_end\venvi\Scripts\python.exe .\Back_end\manage.py merge_parquet_cache --endpoint nc
-```
-
-Do the same for `mean` endpoint if needed.
+Forecast responses are cached as Parquet files so the model doesn't re-run on repeated requests. See `CACHE.md` for how it works, how to rebuild, and troubleshooting.
 
 ## Notes
 
 - Start backend before frontend so API calls succeed.
 - Large data/model folders are intentionally gitignored.
-- Current cache implementation uses week-based keys (Monday start) between 1999 and 2021 data range.
-- For 2018+ parallel cache runs, see `CACHE_RUNBOOK.md`.
-- For current cache progress and the 15-date smoke set, see `CACHE_STATUS.md`.
+- Cache uses week-based keys (Monday start) across the 1999–2021 data range.
